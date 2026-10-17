@@ -1,0 +1,15 @@
+# QNAP Container Station 3 / ioBroker Docker v12 (Node.js 24)
+# Bind mount directory must exist before deployment.
+services:
+  iobroker:
+    image: buanet/iobroker:v12.0.0
+    container_name: iobroker
+    hostname: iobroker
+    restart: unless-stopped
+    environment:
+      TZ: Europe/Berlin
+    ports:
+      - "18081:8081/tcp"
+    volumes:
+      - /share/Container/iobroker/data:/opt/iobroker
+    stop_grace_period: 120s

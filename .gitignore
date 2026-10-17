@@ -1,0 +1,9 @@
+# Laufzeitdaten, Backups, Logs und Zugangsdaten niemals committen
+runtime/
+data/
+backups/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
