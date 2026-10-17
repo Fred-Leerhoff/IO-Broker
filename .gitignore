@@ -1,0 +1,8 @@
+# ioBroker runtime data and backups must never enter Git
+data/
+backups/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
