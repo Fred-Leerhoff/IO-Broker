@@ -35,7 +35,7 @@ mkdir -p "${STATE_DIR}" "${BACKUP_DIR}" "${DATA_DIR}"
 chmod 700 "${STATE_DIR}" "${BACKUP_DIR}"
 tmp="${STATE_DIR}/crontab.$$"
 trap 'rm -f "${tmp}"' EXIT HUP INT TERM
-grep -vF "${REPO_DIR}/scripts/qnap_deploy.sh" "${CRON_FILE}" > "${tmp}" || true
+(grep -vF "${CRON_MARK}" "${CRON_FILE}" || true) | grep -vF "${REPO_DIR}/scripts/qnap_deploy.sh" > "${tmp}" || true
 {
   cat "${tmp}"
   echo "${CRON_MARK}"
