@@ -1,0 +1,22 @@
+name: Validate QNAP deployment
+
+on:
+  pull_request:
+  push:
+    branches:
+      - setup/qnap-iobroker-v12
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check POSIX shell syntax
+        run: |
+          sh -n scripts/install_qnap_deployer.sh
+          sh -n scripts/qnap_deploy.sh
+      - name: Check Docker Compose syntax
+        run: docker compose -f compose.yaml config --quiet
