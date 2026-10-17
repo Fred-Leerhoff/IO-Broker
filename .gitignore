@@ -1,4 +1,5 @@
-# ioBroker runtime data and backups must never enter Git
+# Laufzeitdaten, Backups, Logs und Zugangsdaten niemals committen
+runtime/
 data/
 backups/
 *.log
